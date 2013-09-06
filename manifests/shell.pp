@@ -6,7 +6,7 @@ class user::shell{
   exec{$command:
     creates => "${user::homefolder}/bin/vcprompt",
   }
-  $chmodit = "chmod 755 ${user::homefolder}/bin/vcprompt"
+  $chmodit = "/bin/chmod 755 ${user::homefolder}/bin/vcprompt"
   exec{$chmodit:
     require => Exec[$command]
   }
