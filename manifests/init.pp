@@ -5,6 +5,7 @@ class user{
   file{"${homefolder}/src":
     ensure => "directory"
   }
-  include dotfiles
-  include emacs
+  include user::dotfiles
+  include user::emacs
+  include user::shell
 }

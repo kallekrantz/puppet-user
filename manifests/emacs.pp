@@ -8,4 +8,9 @@ class user::emacs{
     revision => master,
     require => File["${user::homefolder}/src"]
   }
+  file{ "${user::homefolder}/.emacs.d":
+    ensure => link,
+    target => $emacs_dir
+    require => Vcsrepo[$emacs_dir],
+  }
 }
