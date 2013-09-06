@@ -29,7 +29,7 @@ class user::dotfiles{
   file{ "${user::homefolder}/config":
     ensure => directory
   }
-  file{ "{user::homefolder}/config/fish":
+  file{ "${user::homefolder}/config/fish":
     target => "${dotfiles_dir}/config/fish}",
     force => true,
     ensure => link,
