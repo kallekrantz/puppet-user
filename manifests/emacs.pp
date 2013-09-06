@@ -10,7 +10,7 @@ class user::emacs{
   }
   file{ "${user::homefolder}/.emacs.d":
     ensure => link,
-    target => $emacs_dir
+    target => $emacs_dir,
     require => Vcsrepo[$emacs_dir],
   }
 }

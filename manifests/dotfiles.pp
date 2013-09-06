@@ -6,7 +6,7 @@ class user::dotfiles{
     provider => git,
     source => $dotfiles_src,
     revision => master,
-    require => file["${user::homefolder}/src"]
+    require => File["${user::homefolder}/src"]
   }
   file{ "${user::homefolder}/.xmonad":
     ensure => directory
@@ -30,9 +30,9 @@ class user::dotfiles{
     ensure => directory
   }
   file{ "{user::homefolder}/config/fish":
-    target => "${dotfiles_dir}/config/fish}"
-    force => true
-    ensure => link
+    target => "${dotfiles_dir}/config/fish}",
+    force => true,
+    ensure => link,
     require => Vcsrepo[$dotfiles_dir]
   }
 }
