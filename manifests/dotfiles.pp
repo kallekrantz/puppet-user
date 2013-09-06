@@ -1,5 +1,5 @@
 class user::dotfiles{
-  $dotfiles_src = "https://github.com/${github_user}/dotfiles.git"
+  $dotfiles_src = "https://github.com/${user::github_user}/dotfiles.git"
   $dotfiles_dir = "${user::homefolder}/src/dotfiles"
   vcsrepo{ $dotfiles_dir:
     ensure => latest,
