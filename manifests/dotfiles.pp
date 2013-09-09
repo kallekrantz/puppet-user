@@ -6,6 +6,8 @@ class user::dotfiles{
     provider => git,
     source => $dotfiles_src,
     revision => master,
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
     require => File["${user::homefolder}/src"]
   }
   file{ "${user::homefolder}/.xmonad":

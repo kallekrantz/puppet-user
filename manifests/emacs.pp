@@ -6,6 +6,8 @@ class user::emacs{
     provider => git,
     source => $emacs_src,
     revision => master,
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
     require => File["${user::homefolder}/src"]
   }
   file{ "${user::homefolder}/.emacs.d":
