@@ -11,30 +11,42 @@ class user::dotfiles{
     require => File["${user::homefolder}/src"]
   }
   file{ "${user::homefolder}/.xmonad":
-    ensure => directory
+    ensure => directory,
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
   }
   file{ "${user::homefolder}/.xmonad/xmonad.hs":
     ensure => link,
     target => "${dotfiles_dir}/xmonad.hs",
-    require => Vcsrepo[$dotfiles_dir]
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
+    require => Vcsrepo[$dotfiles_dir],
   }
   file{ "${user::homefolder}/.vimrc":
     ensure => link,
     target => "${dotfiles_dir}/vimrc",
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
     require => Vcsrepo[$dotfiles_dir]
   }
   file{ "${user::homefolder}/.vim":
     ensure => link,
     target => "${dotfiles_dir}/vim",
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
     require => Vcsrepo[$dotfiles_dir]
   }
   file{ "${user::homefolder}/config":
-    ensure => directory
+    ensure => directory,
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
   }
   file{ "${user::homefolder}/config/fish":
     target => "${dotfiles_dir}/config/fish}",
     force => true,
     ensure => link,
+    owner => 'kallekrantz',
+    group => 'kallekrantz',
     require => Vcsrepo[$dotfiles_dir]
   }
 }

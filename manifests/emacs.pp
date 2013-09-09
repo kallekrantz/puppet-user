@@ -14,5 +14,7 @@ class user::emacs{
     ensure => link,
     target => $emacs_dir,
     require => Vcsrepo[$emacs_dir],
+    owner => 'kallekrantz',
+    group => 'kallekrantz'
   }
 }
